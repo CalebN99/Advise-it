@@ -1,0 +1,13 @@
+{
+  "name": "Advise-it",
+  "authors": {
+      "name": "Caleb Norris",
+      "email": "norrisc129@gmail.com"
+    },
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["classes/", "model/", "controllers/"]
+  }
+}
