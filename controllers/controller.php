@@ -27,6 +27,16 @@ class Controller
 
     function saveSchedule($token)
     {
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            echo $_POST['fall'];
+            echo $_POST['winter'];
+            echo $_POST['spring'];
+            echo $_POST['summer'];
+
+        }
+
         $this->_f3->set('token', $token);
         $view = new Template();
         echo $view->render('views/new_schedule.html');
