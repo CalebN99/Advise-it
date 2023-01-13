@@ -30,6 +30,7 @@ class DataLayer
         $sql = "INSERT INTO schedules (token, fall, winter, spring, summer, updated) 
         VALUES (:token, :fall, :winter, :spring, :summer, :updated)";
 
+        $updated = date("20y:m:d h:i:a");
         $statement = $this->_dbh->prepare($sql);
 
         $statement->bindParam(':token', $token, PDO::PARAM_STR);
@@ -37,7 +38,7 @@ class DataLayer
         $statement->bindParam(':winter', $winter, PDO::PARAM_STR);
         $statement->bindParam(':spring', $spring, PDO::PARAM_STR);
         $statement->bindParam(':summer', $summer, PDO::PARAM_STR);
-        $statement->bindParam(':updated', $upated, PDO::PARAM_STR);
+        $statement->bindParam(':updated', $updated, PDO::PARAM_STR);
 
 
         $statement->execute();
