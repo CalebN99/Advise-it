@@ -25,6 +25,24 @@ class DataLayer
         $this->_dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     }
 
+    function createSchedule($token, $fall, $winter, $spring, $summer) {
+
+        $sql = "INSERT INTO schedules (token, fall, winter, spring, summer, updated) 
+        VALUES (:token, :fall, :winter, :spring, :summer, :updated)";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam(':token', $token, PDO::PARAM_STR);
+        $statement->bindParam(':fall', $fall, PDO::PARAM_STR);
+        $statement->bindParam(':winter', $winter, PDO::PARAM_STR);
+        $statement->bindParam(':spring', $spring, PDO::PARAM_STR);
+        $statement->bindParam(':summer', $summer, PDO::PARAM_STR);
+        $statement->bindParam(':updated', $upated, PDO::PARAM_STR);
+
+
+        $statement->execute();
+    }
+
 
     /**
      * Method uses PDO to insert into userAccounts database table
