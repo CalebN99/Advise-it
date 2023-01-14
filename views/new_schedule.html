@@ -1,45 +1,40 @@
 <include href="includes/header.html"></include>
 
 <body>
- <form class="scheduleForm" action="#" method="POST">
-     <h4>https://www.cnorris.greenriverdev.com/485/Advise-it/new_schedule/{{ @token }}</h4>
-     <div class="row mb-1">
-         <div class="col-4 text-right">
-             <label for="fall" class="form-text">Fall</label>
-         </div>
-         <div class="col-8">
-             <input type="fall" id="fall" name="fall" class="form-control">
-         </div>
-     </div>
-     <!-- Password -->
-     <div class="row">
-         <div class="col-4 text-right">
-             <label for="winter" class="form-text">Winter</label>
-         </div>
-         <div class="col-8">
-             <input type="winter" id="winter" name="winter" class="form-control">
-         </div>
+<div class="formContainer">
+    <h4>https://www.cnorris.greenriverdev.com/485/Advise-it/new_schedule/{{ @token }}</h4>
+    <form action="#" method="POST">
 
-     </div>
-     <div class="row">
-         <div class="col-4 text-right">
-             <label for="spring" class="form-text">Spring</label>
-         </div>
-         <div class="col-8">
-             <input type="spring" id="spring" name="spring" class="form-control">
-         </div>
+        <div class="input-group">
+            <div  class="form-floating mb-3 textareaBox">
+                <textarea type="textarea" id="fall" name="fall" class="form-control"> </textarea>
+                <label for="fall" class="form-text">Fall</label>
+            </div>
 
-     </div>
-     <div class="row">
-         <div class="col-4 text-right">
-             <label for="summer" class="form-text">Summer</label>
-         </div>
-         <div class="col-8">
-             <input type="summer" id="summer" name="summer" class="form-control">
-         </div>
-         <button type="submit">Save</button>
+            <span class="input-group-addon">   </span>
 
-     </div>
- </form>
+            <div  class="form-floating textareaBox">
+                <textarea type="winter" id="winter" name="winter" class="form-control"> </textarea>
+                <label for="winter" class="form-text">Winter</label>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div  class="form-floating mb-3 textareaBox">
+                <textarea placeholder="Password" type="spring" id="spring" name="spring" class="form-control"> </textarea>
+                <label for="spring" class="form-text">Spring</label>
+            </div>
+            <span class="input-group-addon"></span>
+            <div class="form-floating textareaBox">
+               <textarea type="summer" id="summer" name="summer" class="form-control"> </textarea>
+               <label for="summer" class="form-text">Summer</label>
+            </div>
+        </div>
+
+        <button class="scheduleButton" type="submit">Save</button>
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>

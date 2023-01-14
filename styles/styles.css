@@ -4,3 +4,28 @@ h4 {
     color: blue;
 }
 
+.formContainer {
+   width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+.formContainer form {
+    width: fit-content;
+    border: 2px solid red;
+    margin: 0 auto;
+}
+
+#winter, #fall, #spring, #summer {
+    width: 15em;
+    height: 15em;
+}
+
+.scheduleButton {
+    margin-top: 5em;
+}
+
+.textareaBox {
+    margin: 1em;
+}
+
