@@ -25,7 +25,7 @@ class Controller
                 $token = bin2hex($token);
             }
 
-            header('location: new_schedule/' . $token);
+            header('location: schedule/' . $token);
 
         }
 
@@ -56,16 +56,28 @@ class Controller
                 $summer = $_POST['summer'];
             }
 
+
             if (!$GLOBALS['datalayer']->checkToken($token)) {
                 $success = $GLOBALS['datalayer']->saveSchedule($token, $fall, $winter, $spring, $summer);
-
                 if($success == 1) {
-                    echo '<h1> Success! </h1>';
+                    echo '<h1> Created Success! </h1>';
+                } else {
+                    echo '<h1> New Schedule Failed </h1>';
                 }
             } else {
-                echo '<h1> Token arleady exists </h1>';
+                $success = $GLOBALS['datalayer']->updateSchedule($token, $fall, $winter, $spring, $summer);
+                if($success == 1) {
+                    echo '<h1> Updated Succesfully! </h1>';
+                } else {
+                    echo '<h1> Update Failed... </h1>';
+                }
             }
 
+        }
+
+        if ($GLOBALS['datalayer']->checkToken($token)) {
+            $user = $GLOBALS['datalayer']->getSchedule($token);
+            $this->_f3->set('user', $user);
         }
 
 

@@ -1,18 +1,20 @@
 
 h4 {
     text-align: center;
-    color: blue;
+    color: black;
+    font-size: 1.2em;
 }
 
 .formContainer {
    width: fit-content;
     display: block;
     margin: 0 auto;
+    color: white;
 }
 
 .formContainer form {
     width: fit-content;
-    border: 2px solid red;
+    background-color: #2b542c;
     margin: 0 auto;
 }
 
@@ -23,9 +25,26 @@ h4 {
 
 .scheduleButton {
     margin-top: 5em;
+    display: block;
+    margin: 0 auto;
+    width: 5em;
+    background-color: whitesmoke;
 }
 
 .textareaBox {
     margin: 1em;
+}
+
+.updated {
+    text-align: center;
+    padding: .5em;
+}
+
+.inline h4 {
+    display: inline-block;
+}
+
+.inline div {
+    display: inline-block;
 }
 

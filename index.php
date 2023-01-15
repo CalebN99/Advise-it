@@ -26,78 +26,9 @@ $f3->route('GET|POST /', function() {
 });
 
 //Define schedule route
-$f3->route('GET|POST /new_schedule/@token', function($f3) {
+$f3->route('GET|POST /schedule/@token', function($f3) {
 
     $GLOBALS['con']->saveSchedule($f3->get('PARAMS.token'));
-});
-
-
-//Login page route
-$f3->route('GET|POST /login', function () {
-    $GLOBALS['con']->login();
-});
-
-//Logout page route
-$f3->route('GET|POST /logout', function () {
-    $GLOBALS['con']->logout();
-});
-
-
-
-//Account Summary
-$f3->route('GET|POST /account_summary', function () {
-    $GLOBALS['con']->accountSummary();
-});
-
-
-
-// Our Collections (Browse Products)
-$f3->route('GET|POST /our_collections', function() {
-    $GLOBALS['con']->ourCollections($GLOBALS['datalayer']->getProducts());
-});
-
-// View Candle Products (Browse Products)
-$f3->route('GET|POST /browse_candles', function() {
-    $GLOBALS['con']->ourCollections($GLOBALS['datalayer']->getCandles());
-});
-
-// View Diffuser Products (Browse Products)
-$f3->route('GET|POST /browse_diffusers', function() {
-    $GLOBALS['con']->ourCollections($GLOBALS['datalayer']->getDiffusers());
-});
-
-// View Individual Product Page (More info)
-$f3->route('GET|POST /product_page', function() {
-    $GLOBALS['con']->productPage();
-});
-
-
-
-// About Us
-$f3->route('GET|POST /about_us', function() {
-    $GLOBALS['con']->aboutUs();
-});
-
-// Contact Us
-$f3->route('GET|POST /contact_us', function() {
-    $GLOBALS['con']->contactUs();
-});
-
-
-
-// Checkout
-$f3->route('GET|POST /checkout', function() {
-    $GLOBALS['con']->checkout();
-});
-
-// Admin
-$f3->route('GET|POST /admin', function() {
-    $GLOBALS['con']->admin();
-});
-
-// Admin Update Product Quantity
-$f3->route('GET|POST /admin-quantity-update', function() {
-    $GLOBALS['con']->adminQuantityUpdate();
 });
 
 

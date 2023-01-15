@@ -44,6 +44,23 @@ class DataLayer
         return $statement->execute();
     }
 
+    function updateSchedule($token, $fall, $winter, $spring, $summer) {
+
+        $sql = "UPDATE schedules SET fall = :fall, winter = :winter, spring = :spring, summer = :summer, updated = :updated WHERE token = :token";
+
+        $updated = date("20y:m:d h:i:a");
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam(':token', $token, PDO::PARAM_STR);
+        $statement->bindParam(':fall', $fall, PDO::PARAM_STR);
+        $statement->bindParam(':winter', $winter, PDO::PARAM_STR);
+        $statement->bindParam(':spring', $spring, PDO::PARAM_STR);
+        $statement->bindParam(':summer', $summer, PDO::PARAM_STR);
+        $statement->bindParam(':updated', $updated, PDO::PARAM_STR);
+
+        return $statement->execute();
+    }
+
     function checkToken($token) {
 
         $sql = "SELECT * FROM schedules WHERE token = :token LIMIT 1";
@@ -64,6 +81,25 @@ class DataLayer
 
 
     }
+
+    function getSchedule($token) {
+        $sql = "SELECT * FROM schedules WHERE token = :token LIMIT 1";
+
+        $statement = $this->_dbh->prepare($sql);
+
+        $statement->bindParam(':token', $token, PDO::PARAM_STR);
+
+        $statement->execute();
+
+        $user = $statement->fetch();
+
+        if ($user) {
+            return $user;
+        } else {
+            return false;
+        }
+    }
+
 
 
     /**
