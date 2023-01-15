@@ -3,6 +3,7 @@ h4 {
     text-align: center;
     color: black;
     font-size: 1.2em;
+    padding: 1.2em;
 }
 
 .formContainer {
@@ -16,6 +17,7 @@ h4 {
     width: fit-content;
     background-color: #2b542c;
     margin: 0 auto;
+    padding: 3em 3em 3em 3em;
 }
 
 #winter, #fall, #spring, #summer {
@@ -47,4 +49,6 @@ h4 {
 .inline div {
     display: inline-block;
 }
+
+f
 
