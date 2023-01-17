@@ -9,8 +9,13 @@
 
 
 
+    <check if="{{ isset(@queryStatus) }}">
+        <h2 id="queryStatus">{{ @queryStatus }}</h2>
+    </check>
+
     <form action="#" method="POST">
 
+        <h1>Advise it</h1>
         <div class="input-group">
             <div  class="form-floating mb-3 textareaBox">
                 <textarea type="textarea" id="fall" name="fall" class="form-control"> {{ @user['fall'] }} </textarea>

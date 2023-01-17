@@ -18,10 +18,10 @@ class Controller
     {
         $token = "";
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $token = random_bytes(15);
+            $token = random_bytes(3);
             $token = bin2hex($token);
             while ($GLOBALS['datalayer']->checkToken($token)) {
-                $token = random_bytes(15);
+                $token = random_bytes(3);
                 $token = bin2hex($token);
             }
 
@@ -60,16 +60,16 @@ class Controller
             if (!$GLOBALS['datalayer']->checkToken($token)) {
                 $success = $GLOBALS['datalayer']->saveSchedule($token, $fall, $winter, $spring, $summer);
                 if($success == 1) {
-                    echo '<h1> Created Success! </h1>';
+                    $this->_f3->set('queryStatus', "Successfully created!");
                 } else {
-                    echo '<h1> New Schedule Failed </h1>';
+                    $this->_f3->set('queryStatus', "Failed to create new schedule...");
                 }
             } else {
                 $success = $GLOBALS['datalayer']->updateSchedule($token, $fall, $winter, $spring, $summer);
                 if($success == 1) {
-                    echo '<h1> Updated Succesfully! </h1>';
+                    $this->_f3->set('queryStatus', "Updated Successfully!");
                 } else {
-                    echo '<h1> Update Failed... </h1>';
+                    $this->_f3->set('queryStatus', "Update Failed...");
                 }
             }
 

@@ -30,7 +30,10 @@ class DataLayer
         $sql = "INSERT INTO schedules (token, fall, winter, spring, summer, updated) 
         VALUES (:token, :fall, :winter, :spring, :summer, :updated)";
 
-        $updated = date("20y:m:d h:i:a");
+
+        $date = new DateTime();
+        $date->setTimezone(new DateTimeZone('America/Los_Angeles'));
+        $updated = $date->format('m-d-20y h:ia');
         $statement = $this->_dbh->prepare($sql);
 
         $statement->bindParam(':token', $token, PDO::PARAM_STR);
@@ -48,7 +51,9 @@ class DataLayer
 
         $sql = "UPDATE schedules SET fall = :fall, winter = :winter, spring = :spring, summer = :summer, updated = :updated WHERE token = :token";
 
-        $updated = date("20y:m:d h:i:a");
+        $date = new DateTime();
+        $date->setTimezone(new DateTimeZone('America/Los_Angeles'));
+        $updated = $date->format('m-d-20y h:ia');
         $statement = $this->_dbh->prepare($sql);
 
         $statement->bindParam(':token', $token, PDO::PARAM_STR);

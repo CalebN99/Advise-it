@@ -50,5 +50,12 @@ h4 {
     display: inline-block;
 }
 
-f
+h1 {
+    text-align: center;
+}
+
+#queryStatus {
+    color: black;
+    text-align: center;
+}
 
