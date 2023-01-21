@@ -27,7 +27,7 @@ class Controller
                     echo $username . " " . $password;
                     header("location: admin");
                 } else {
-                    $this->_f3->set('loginErr', "Username/Password incorrect");
+                    $this->_f3->set('loginErr', "Username/Password incorrect...");
                 }
             } else {
                 $token = random_bytes(3);

@@ -1,0 +1,44 @@
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.tableContainer {
+    background-color: #2b542c;
+    padding: 1em;
+    width: 75vw;
+    display: block;
+    margin: 0 auto;
+
+}
+
+.table {
+    background-color: white;
+}
+
+.hedd {
+    display: block;
+}
+
+
+.inline {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    padding-bottom: 2em;
+    padding-top: 3em;
+}
+
+.inline h1 {
+    margin: 0;
+    padding-left: .5em;
+}
+
+.inline button {
+    margin-left: auto;
+}
