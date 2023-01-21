@@ -31,6 +31,12 @@ $f3->route('GET|POST /schedule/@token', function($f3) {
     $GLOBALS['con']->saveSchedule($f3->get('PARAMS.token'));
 });
 
+//Define admin route
+$f3->route('GET|POST /admin', function() {
+
+    $GLOBALS['con']->admin();
+});
+
 
 //Run f3
 $f3->run();

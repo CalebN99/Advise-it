@@ -16,16 +16,30 @@ class Controller
      */
     function home()
     {
-        $token = "";
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $token = random_bytes(3);
-            $token = bin2hex($token);
-            while ($GLOBALS['datalayer']->checkToken($token)) {
+            $token = "";
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            if ($username && $password) {
+                if ($username == "admin" && $password == '@dm1n') {
+                    echo $username . " " . $password;
+                    header("location: admin");
+                } else {
+                    $this->_f3->set('loginErr', "Username/Password incorrect");
+                }
+            } else {
                 $token = random_bytes(3);
                 $token = bin2hex($token);
-            }
+                while ($GLOBALS['datalayer']->checkToken($token)) {
+                    $token = random_bytes(3);
+                    $token = bin2hex($token);
+                }
 
-            header('location: schedule/' . $token);
+                header('location: schedule/' . $token);
+
+            }
 
         }
 
@@ -33,8 +47,18 @@ class Controller
         echo $view->render('views/home.html');
     }
 
+    function admin() {
+        $users = $GLOBALS['datalayer']->getAllSchedules();
+
+        $this->_f3->set('users', $users);
+
+        $view = new Template();
+        echo $view->render('views/schedules.html');
+    }
+
     function saveSchedule($token)
     {
+
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -42,6 +66,7 @@ class Controller
             $winter = "";
             $spring = "";
             $summer = "";
+            $advisor = "";
 
             if ($_POST['fall']) {
                 $fall = $_POST['fall'];
@@ -55,17 +80,20 @@ class Controller
             if ($_POST['summer']) {
                 $summer = $_POST['summer'];
             }
+            if ($_POST['advisor']) {
+                $advisor = $_POST['advisor'];
+            }
 
 
             if (!$GLOBALS['datalayer']->checkToken($token)) {
-                $success = $GLOBALS['datalayer']->saveSchedule($token, $fall, $winter, $spring, $summer);
+                $success = $GLOBALS['datalayer']->saveSchedule($token, $fall, $winter, $spring, $summer, $advisor);
                 if($success == 1) {
                     $this->_f3->set('queryStatus', "Successfully created!");
                 } else {
                     $this->_f3->set('queryStatus', "Failed to create new schedule...");
                 }
             } else {
-                $success = $GLOBALS['datalayer']->updateSchedule($token, $fall, $winter, $spring, $summer);
+                $success = $GLOBALS['datalayer']->updateSchedule($token, $fall, $winter, $spring, $summer, $advisor);
                 if($success == 1) {
                     $this->_f3->set('queryStatus', "Updated Successfully!");
                 } else {

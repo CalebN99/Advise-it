@@ -1,9 +1,12 @@
 <include href="includes/header.html"></include>
+<link rel="stylesheet" href="../styles/styles.css">
 
+</head>
 <body>
 <div class="formContainer">
     <div class="inline">
-        <h4 id="myInput">https://www.cnorris.greenriverdev.com/485/Advise-it/schedule/{{ @token }} </h4>
+        <button class="btn btn-primary homeButton"><a class="homeLink" href="{{ @BASE }}">Home</a></button>
+        <h4 id="myInput">https://www.cnorris.greenriverdev.com/485/Advise-it/schedule/{{ @token }}</h4>
         <button onclick="myFunction()" >Copy</button>
     </div>
 
@@ -41,9 +44,16 @@
                <label for="summer" class="form-text">Summer</label>
             </div>
         </div>
+        <div class="input-group">
+            <div  class="form-floating mb-3 advisorBox">
+                <input placeholder="Advisor" name="advisor" id="advisor"  class="form-control" value="{{ @user['advisor'] }}">  </input>
+                <label for="advisor" class="form-text">Advisor</label>
+            </div>
+
+        </div>
 
 
-        <button class="scheduleButton" type="submit">
+        <button class="btn btn-primary scheduleButton" type="submit">
 
             <check if="{{ isset(@user) }}">
                 <true>

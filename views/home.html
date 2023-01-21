@@ -1,4 +1,6 @@
 <include href="includes/header.html"></include>
+
+</head>
 <style>
     .landing {
         text-align: center;
@@ -13,13 +15,38 @@
         padding: 1em;
         color: white;
     }
+
+    input {
+        margin: .33em;
+    }
+
+    form label {
+        color: white;
+    }
+
+    button {
+        margin: .5em;
+    }
 </style>
 
 <body>
  <div class="landing">
      <h1>Welcome to Advise it</h1>
      <form action="#" method="POST">
-         <button class="newSchedButton" type="submit">Create new schedule</button><br>
+
+         <label>Username: </label>
+         <br>
+         <input type="text" name="username" id="username" placeholder="Username..." required />
+         <br>
+         <label>Password: </label>
+         <br>
+         <input type="text" name="password" id="password" placeholder="Password..." required />
+            <br>
+         <button type="submit" class="btn btn-primary">Login</button>
+
+     </form>
+     <form action="#" method="POST">
+         <button class="btn btn-primary newSchedButton" type="submit">Create new schedule</button><br>
      </form>
 
  </div>
